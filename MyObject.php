@@ -23,5 +23,21 @@ class WorkoutLog {
         return "Workout Log for {$this->name}: {$this->workoutType} for {$this->duration} min, "
              . "burned {$this->caloriesBurned} calories. Notes: {$this->notes}";
     }
+
+    // i expect this to return calories divided by duration
+    public function getCaloriesPerMinute() {
+        if ($this->duration > 0) {
+            return $this->caloriesBurned / $this->duration;
+        }
+        return 0;
+    }
+
+    // i expect this to return "Intense workout!" if duration > 60 or calories > 500
+    public function isIntense() {
+        if ($this->duration > 60 || $this->caloriesBurned > 500) {
+            return "Intense workout!";
+        }
+        return "Moderate workout.";
+    }
 }
 ?>
