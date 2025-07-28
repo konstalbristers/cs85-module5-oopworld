@@ -17,5 +17,11 @@ class WorkoutLog {
         $this->caloriesBurned = $caloriesBurned;
         $this->notes = $notes;
     }
+
+    // i expect this to return a formatted summary string
+    public function getSummary() {
+        return "Workout Log for {$this->name}: {$this->workoutType} for {$this->duration} min, "
+             . "burned {$this->caloriesBurned} calories. Notes: {$this->notes}";
+    }
 }
 ?>
