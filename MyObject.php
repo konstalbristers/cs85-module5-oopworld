@@ -39,5 +39,23 @@ class WorkoutLog {
         }
         return "Moderate workout.";
     }
+
+    // i expect this to update the notes property
+    public function updateNotes($newNotes) {
+        $this->notes = $newNotes;
+    }
 }
+
+// instantiate two objects with real data and test methods
+$log1 = new WorkoutLog("Anastasia", "Cycling", 75, 600, "Great cardio session!");
+$log2 = new WorkoutLog("Kostas", "Yoga", 45, 200, "Focused on flexibility.");
+
+echo $log1->getSummary() . "<br>";
+echo "Calories per minute: " . $log1->getCaloriesPerMinute() . "<br>";
+echo $log1->isIntense() . "<br><br>";
+
+echo $log2->getSummary() . "<br>";
+$log2->updateNotes("Added breathing exercises.");
+echo "Updated Notes: " . $log2->notes . "<br>";
+echo $log2->isIntense();
 ?>
