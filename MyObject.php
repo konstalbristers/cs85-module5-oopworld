@@ -44,6 +44,13 @@ class WorkoutLog {
     public function updateNotes($newNotes) {
         $this->notes = $newNotes;
     }
+
+    // AI-Generated Method
+    // Raw AI version: return $this->caloriesBurned * 5;
+    // Modified to allow flexible sessions
+    public function estimateWeeklyCalories($sessionsPerWeek = 5) {
+        return $this->caloriesBurned * $sessionsPerWeek;
+    }
 }
 
 // instantiate two objects with real data and test methods
@@ -52,10 +59,12 @@ $log2 = new WorkoutLog("Kostas", "Yoga", 45, 200, "Focused on flexibility.");
 
 echo $log1->getSummary() . "<br>";
 echo "Calories per minute: " . $log1->getCaloriesPerMinute() . "<br>";
-echo $log1->isIntense() . "<br><br>";
+echo $log1->isIntense() . "<br>";
+echo "Estimated weekly calories: " . $log1->estimateWeeklyCalories(1) . "<br><br>";
 
 echo $log2->getSummary() . "<br>";
 $log2->updateNotes("Added breathing exercises.");
 echo "Updated Notes: " . $log2->notes . "<br>";
-echo $log2->isIntense();
+echo $log2->isIntense() . "<br>";
+echo "Estimated weekly calories: " . $log2->estimateWeeklyCalories(3) . "<br>";
 ?>
